@@ -191,10 +191,10 @@ const aniTx = (m) => {
             teE.innerHTML = neTx;
             E_I(curTx.id).appendChild(teE);
             const sizF = () => {
-                if (txSize < 51) {
+                if (txSize < 40) {
                     E_I("teE").style.cssText = `font-size:${txSize}px; color:var(--B); position: absolute;    text-align: center;width:100%`;
-                    txSize = txSize + 5;
-                    txtState = window.setTimeout(sizF, 100);
+                    txSize = txSize + 3;
+                    txtState = window.setTimeout(sizF, 50);
                 }
             }
             CL_(["aniTest", m])

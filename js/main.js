@@ -43,21 +43,15 @@ const gameView = () => {
     body.appendChild(userScore);
     body.appendChild(sysScore);
     // btArea
-    var btArea = E_I("btArea");
-    var startBt = C_H("icon", "ICO-play-alt-3  PD_50 cr B_YE3 F_S_50 F_W MWIco", "", false);
-    startBt.addEventListener("click", () => {
-        gameStart();
-    });
-    var ti2 = C_H("h2", "F_B", "PLAY", false);
-    A_H(btArea, [startBt, ti2]);
+    createStartBt();
 }
+
 const gameStart = () => {
     E_I("logo").className = "MD W_150 ROT_I";
     DEL_E("btArea");
     const createBt = (r) => {
-        var imgClass = r == 0 ? "W_50 POS_ABS mT_10" : "W_50 POS_ABS";
         var btArea = E_I("btArea");
-        var imgBt = C_H("img", imgClass, `/img/${imgs[r]}`, "logo");
+        var imgBt = createImg(r);
         var classCss = ` W_80 H_80 cr _MR_10 ${colors[r]}`;
         var btimg = C_H("div", classCss, "", false);
         btimg.appendChild(imgBt);
@@ -95,9 +89,79 @@ const gameStart = () => {
     setTimeout(stop, 9000);
 
 }
-const gameEnd = (r) => {
+const createImg = (r) => {
+    var imgClass = r == 0 ? "W_50 POS_ABS mT_10" : "W_50 POS_ABS";
+    var imgBt = C_H("img", U_CSS(imgClass), `/img/${imgs[r]}`, "logo");
+    return imgBt;
+}
+const createStartBt = () => {
+    DEL_E("btArea")
+    var btArea = E_I("btArea");
+    var startBt = C_H("icon", "ICO-play-alt-3  PD_50 cr B_YE3 F_S_50 F_W MWIco", "", false);
+    startBt.addEventListener("click", () => {
+        gameStart();
+    });
+    var ti2 = C_H("h2", "F_B", "PLAY", false);
+    A_H(btArea, [startBt, ti2]);
+}
+
+var updateUserScore = (win) => {
+
+    if (win) {
+        user.win++;
+    } else {
+        user.lose++;
+    }
+    DEL_E("sysScore");
+    DEL_E("userScore");
+
+    var score = user.win;
+    var sysScoreN = user.lose;
+    var sysI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_20 F_W MWIco", "", false);
+    var userI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_20 F_W MWIco", "", false);
+    var userScore = E_I("userScore");
+    userScore.appendChild(userI);
+    userScore.innerHTML += `User >> ${score}`;
+    var sysScore = E_I("sysScore");
+    sysScore.innerHTML = ` ${sysScoreN} << AzAzY`;
+    sysScore.appendChild(sysI);
+}
+const gameEnd = (d) => {
     var sysChoose = randomNum(0, 3);
-    CL_(sysChoose)
+    var sysChooseFilter = sysChoose == 3 ? 2 : sysChoose;
+    var win = false;
+    var imgUser = createImg(d);
+    var imgSys = createImg(sysChooseFilter);
+    DEL_E("fB1");
+    DEL_E("fB2");
+    DEL_E("fB3");
+    E_I("fB1").appendChild(imgUser);
+    E_I("fB3").appendChild(imgSys);
+    var ti = CE_("h2");
+    var resultIco = CE_("icon");
+    if (d == sysChooseFilter) {
+        win = true;
+    }
+    updateUserScore(win);
+    if (win) {
+
+        ti.innerHTML = "You Win ";
+        ti.className = U_CSS("F_S_30 F_GRE5");
+        resultIco.className = U_CSS("ICO-ui-check  F_GRE5 F_S_40");
+        E_I("fB2").appendChild(ti);
+        E_I("fB2").appendChild(resultIco);
+        E_I("fB1").className = U_CSS("Box_100 MD cr mT_50 B_GRE5 F_S_50");
+        E_I("fB3").className = U_CSS("Box_100 MD cr mT_50 B_GRE5 F_S_50");
+    } else {
+        ti.innerHTML = "You Lose ";
+        ti.className = U_CSS("F_S_30 F_RE5");
+        resultIco.className = U_CSS("ICO-ui-close F_RE5 F_S_40");
+        E_I("fB2").appendChild(ti);
+        E_I("fB2").appendChild(resultIco);
+        E_I("fB1").className = U_CSS("Box_100 MD  cr mT_50 B_RE5 F_S_50");
+        E_I("fB3").className = U_CSS("Box_100 MD  cr mT_50 B_RE5 F_S_50");
+    }
+    createStartBt();
 
 }
 const _ = (function() {
@@ -124,5 +188,7 @@ const _ = (function() {
     A_H(logoArea, [logo]);
     A_H(playScreen, [ti, p]);
     A_H(root, [logoArea, playScreen, btArea]);
+    user.win = 0;
+    user.lose = 0;
     gameView();
 })();
