@@ -2,7 +2,7 @@
 var user = {};
 var words = ["Rock", "Paper", "Scissors"];
 var imgs = ["R-W.png", "P-W.png", "S-W.png"];
-var wordsCount = ["1<br>Rock", "2<br>Paper", "3<br>Scissors"];
+var wordsCount = ["rock beats Scissors", "Scissors beats paper", "paper beats rock"];
 var colors = ["B_BL7", "B_RE5", "B_GRE5"];
 //main
 const C_H = (typ, cls, inner, eId) => {
@@ -32,11 +32,11 @@ const gameView = () => {
     var sysScoreN = 0;
     // game score
     var userScore = C_H("div", "POS_FX PD_3 LL_0 TT_0 _MR_20 B_GRE4 F_B B_R_15", "", "userScore");
-    var userI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_30 F_W MWIco", "", false);
+    var userI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_20 F_W MWIco", "", false);
     userScore.appendChild(userI);
     userScore.innerHTML += `User >> ${score}`;
     var sysScore = C_H("div", "POS_FX PD_3 RR_0 TT_0 _MR_20 B_RE7 F_B B_R_15", "", "sysScore");
-    var sysI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_30 F_W MWIco", "", false);
+    var sysI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_20 F_W MWIco", "", false);
     sysScore.innerHTML = ` ${sysScoreN} << AzAzY`;
     sysScore.appendChild(sysI);
     var body = E_T("body")[0];
@@ -63,14 +63,12 @@ const gameStart = () => {
         A_H(btAll, [btimg, ti, ])
         btArea.appendChild(btAll);
     }
-    for (var r = 0; r < words.length; r++) {
-        createBt(r);
-    }
+
     aniTx({ id: "playScreen", aniTxD: wordsCount });
     const stop = () => {
         aniTx();
         DEL_E("playScreen");
-        var ti = C_H("h2", "F_YE4 F_S_50", "Choose ....?", false);
+        var ti = C_H("h2", "F_YE4 F_S_30", "Choose ....?", false);
         var finishScreen = C_H("div", "WW", "", false);
         var f1 = C_H("div", "W_P_25 D_INB FL_L H_50", "", "f1");
         var f2 = C_H("div", "W_P_50 D_INB FL_L  H_50", "", "f2");
@@ -85,6 +83,9 @@ const gameStart = () => {
         A_H(finishScreen, [f1, f2, f3]);
         E_I("playScreen").appendChild(finishScreen);
         E_I("logo").className = "MD W_150";
+        for (var r = 0; r < words.length; r++) {
+            createBt(r);
+        }
     }
     setTimeout(stop, 9000);
 
@@ -97,7 +98,7 @@ const createImg = (r) => {
 const createStartBt = () => {
     DEL_E("btArea")
     var btArea = E_I("btArea");
-    var startBt = C_H("icon", "ICO-play-alt-3  PD_50 cr B_YE3 F_S_50 F_W MWIco", "", false);
+    var startBt = C_H("icon", "ICO-play-alt-3 mT_20 PD_20 cr B_YE3 F_S_50 F_W MWIco", "", false);
     startBt.addEventListener("click", () => {
         gameStart();
     });
@@ -126,6 +127,22 @@ var updateUserScore = (win) => {
     sysScore.innerHTML = ` ${sysScoreN} << AzAzY`;
     sysScore.appendChild(sysI);
 }
+const calcWinner = (u, s) => {
+    // ["rock beats Scissors", "Scissors beats paper", "paper beats rock"]
+    // ["0 beats 2", "2 beats 1", "1 beats 0"]
+    var data = [
+        [0, 2],
+        [2, 1],
+        [1, 0]
+    ];
+    var win = false;
+    for (var r = 0; r < data.length; r++) {
+        if (u == data[r][0] && s == data[r][1]) {
+            win = true;
+        }
+    }
+    return win;
+}
 const gameEnd = (d) => {
     var sysChoose = randomNum(0, 3);
     var sysChooseFilter = sysChoose == 3 ? 2 : sysChoose;
@@ -139,9 +156,7 @@ const gameEnd = (d) => {
     E_I("fB3").appendChild(imgSys);
     var ti = CE_("h2");
     var resultIco = CE_("icon");
-    if (d == sysChooseFilter) {
-        win = true;
-    }
+    win = calcWinner(d, sysChooseFilter);
     updateUserScore(win);
     if (win) {
 
