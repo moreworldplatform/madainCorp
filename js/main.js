@@ -14,11 +14,11 @@ const _ = (function() {
     */
     var root = E_I("root");
     var logoArea = CE_("div");
-    logoArea.className = U_CSS("WW H_P_30 B_YE1");
+    logoArea.className = U_CSS("WW H_P_30 NH_200 B_YE1");
     var playScreen = CE_("div");
-    playScreen.className = U_CSS("WW H_P_30 B_YE5");
+    playScreen.className = U_CSS("WW H_P_30 NH_200 B_YE5");
     var btArea = CE_("div");
-    btArea.className = U_CSS("WW H_P_30 B_YE8");
+    btArea.className = U_CSS("WW H_P_30 NH_200 B_YE8");
     logoArea.innerHTML = "test";
     playScreen.innerHTML = "test";
     btArea.innerHTML = "test";
