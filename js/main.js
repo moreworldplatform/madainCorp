@@ -6,7 +6,7 @@ const _ = (function() {
     S_SW_TH();
     //i will happy to discuss any part of it
     /*
-    as defult my contaniar called root
+    as default my contaniar called root
     i will split to three parts
     1-logoArea
     2-play screen
