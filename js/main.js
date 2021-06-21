@@ -2,6 +2,7 @@
 var user = {};
 var words = ["Rock", "Paper", "Scissors"];
 var imgs = ["R-W.png", "P-W.png", "S-W.png"];
+var wordsCount = ["1<br>Rock", "2<br>Paper", "3<br>Scissors"];
 var colors = ["B_BL7", "B_RE5", "B_GRE5"];
 //main
 const C_H = (typ, cls, inner, eId) => {
@@ -53,7 +54,7 @@ const gameView = () => {
 const gameStart = () => {
     E_I("logo").className = "MD W_150 ROT_I";
     DEL_E("btArea");
-    for (var r = 0; r < words.length; r++) {
+    const createBt = (r) => {
         var imgClass = r == 0 ? "W_50 POS_ABS mT_10" : "W_50 POS_ABS";
         var btArea = E_I("btArea");
         var imgBt = C_H("img", imgClass, `/img/${imgs[r]}`, "logo");
@@ -68,14 +69,35 @@ const gameStart = () => {
         A_H(btAll, [btimg, ti, ])
         btArea.appendChild(btAll);
     }
+    for (var r = 0; r < words.length; r++) {
+        createBt(r);
+    }
+    aniTx({ id: "playScreen", aniTxD: wordsCount });
+    const stop = () => {
+        aniTx();
+        DEL_E("playScreen");
+        var ti = C_H("h2", "F_YE4 F_S_50", "Choose ....?", false);
+        var finishScreen = C_H("div", "WW", "", false);
+        var f1 = C_H("div", "W_P_25 D_INB FL_L H_50", "", "f1");
+        var f2 = C_H("div", "W_P_50 D_INB FL_L  H_50", "", "f2");
+        var f3 = C_H("div", "W_P_25 D_INB FL_L H_50", "", "f3");
+        var fB1 = C_H("div", "Box_100 MD B_W cr mT_50 F_GRE5 F_S_50", "?", "fB1");
+        var fB2 = C_H("div", "WW", "", "fB2");
+        var fB3 = C_H("div", "Box_100 MD B_W cr mT_50 F_RE6 F_S_50", "?", "fB3");
+        fB2.appendChild(ti);
+        f1.appendChild(fB1);
+        f2.appendChild(fB2);
+        f3.appendChild(fB3);
+        A_H(finishScreen, [f1, f2, f3]);
+        E_I("playScreen").appendChild(finishScreen);
+        E_I("logo").className = "MD W_150";
+    }
+    setTimeout(stop, 9000);
 
 }
 const gameEnd = (r) => {
-    DEL_E("playScreen");
-    var ti = C_H("h2", "F_YE4 F_S_50", "Choose ....?", false);
-    var finishScreen = C_H("div", "WW", "", false);
-    finishScreen.appendChild(ti)
-    E_I("playScreen").appendChild(finishScreen);
+
+
 }
 const _ = (function() {
 
@@ -93,7 +115,7 @@ const _ = (function() {
     // basic contanier
     var root = E_I("root");
     var logoArea = C_H("div", "WW H_P_30 NH_200 MD_T mT_30", "", "logoArea");
-    var playScreen = C_H("div", "WW H_P_30 NH_200 MD_T", "", "playScreen");
+    var playScreen = C_H("div", "WW H_P_30 NH_200 MD_T B_PR_D", "", "playScreen");
     var btArea = C_H("div", "WW H_P_30 NH_200 MD_T", "", "btArea");
     var logo = C_H("img", "MD W_150 ", "/img/icon.png", "logo");
     var ti = C_H("h2", "F_B MD_T WW F_S_30", "RPS", "ti1");
