@@ -54,30 +54,28 @@ const gameStart = () => {
     E_I("logo").className = "MD W_150 ROT_I";
     DEL_E("btArea");
     for (var r = 0; r < words.length; r++) {
-        var btArea = E_I("btArea");
-        var imgBt = CE_("img");
-        imgBt.src = `/img/${imgs[r]}`;
         var imgClass = r == 0 ? "W_50 POS_ABS mT_10" : "W_50 POS_ABS";
-        imgBt.className = U_CSS(imgClass);
-        var btimg = CE_("div");
+        var btArea = E_I("btArea");
+        var imgBt = C_H("img", imgClass, `/img/${imgs[r]}`, "logo");
         var classCss = ` W_80 H_80 cr _MR_10 ${colors[r]}`;
-        btimg.className = U_CSS(classCss);
+        var btimg = C_H("div", classCss, "", false);
         btimg.appendChild(imgBt);
-        var btAll = CE_("div");
-        btAll.name = words[r];
-        btAll.id = words[r];
-        btAll.className = U_CSS("D_INB W_100 MWIco _MR_10");
-
+        var ti = C_H("h2", "F_B", words[r], false);
+        var btAll = C_H("div", "D_INB W_100 MWIco _MR_10", "", words[r]);
         btAll.addEventListener("click", () => {
             gameEnd(r);
         });
-        var ti = CE_("h2");
-        ti.className = U_CSS("F_B");
-        ti.innerHTML = words[r];
-        btAll.appendChild(btimg);
-        btAll.appendChild(ti);
+        A_H(btAll, [btimg, ti, ])
         btArea.appendChild(btAll);
     }
+
+}
+const gameEnd = (r) => {
+    DEL_E("playScreen");
+    var ti = C_H("h2", "F_YE4 F_S_50", "Choose ....?", false);
+    var finishScreen = C_H("div", "WW", "", false);
+    finishScreen.appendChild(ti)
+    E_I("playScreen").appendChild(finishScreen);
 }
 const _ = (function() {
 
