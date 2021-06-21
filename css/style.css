@@ -1,0 +1,769 @@
+/*
+BASIC.CSS.Style
+author:Mohamed Elazazy
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input,
+table,
+th,
+td,
+nav,
+div,
+table,
+a,
+b,
+tr,
+ul,
+li,
+tbody,
+select,
+svg,
+textarea,
+title {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", "Cairo", sans-serif;
+}
+
+.clockBlack {
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 30px;
+    text-align: center;
+    font-size: 50px;
+    opacity: 0.7;
+}
+
+.ROT_I {
+    -webkit-animation: rot-spinLoad 2s infinite linear;
+    animation: rot-spinLoad 2s infinite linear;
+}
+
+@-webkit-keyframes rot-spinLoad {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rot-spinLoad {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+body,
+#root {
+    background: var(--W);
+    color: var(--C_F);
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    background-repeat: no-repeat !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+input,
+table,
+th,
+td,
+b,
+tr,
+tbody,
+select,
+svg,
+textarea,
+title {
+    font-family: "Cairo", sans-serif;
+}
+
+button {
+    min-width: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 0 10px 0 10px;
+    margin: 0;
+}
+
+input,
+textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: 2px var(--C_PRD) solid;
+}
+
+mwn {
+    display: block;
+    width: 75px;
+    height: 75px;
+}
+
+.trn_in {
+    transition: all 0.2s linear 0s;
+}
+
+ico {
+    color: var(--C_F);
+}
+
+.B_N {
+    background: transparent;
+}
+
+tr:hover,
+tr:focus {
+    background: #efefef;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+
+/* @font-face {
+    font-family: mwn;
+    src: url("/mwn/css/fonts/NEWBRILLIANT.TTF");
+}
+ */
+
+.mwn {
+    content: "";
+    clip-path: polygon( 81.53321428571428% 23.177500000000002%, 80.33339285714287% 21.934107142857144%, 78.15178571428571% 21.24660714285714%, 56.14803571428571% 21.25339285714286%, 55.89375% 21.213035714285716%, 55.299107142857146% 21.213035714285716%, 55.221964285714286% 21.25339285714286%, 53.71178571428571% 21.94625%, 49.806250000000006% 27.153392857142858%, 46.24946428571429% 22.43375%, 44.03785714285714% 21.263928571428572%, 21.273214285714285% 21.251785714285713%, 18.595000000000002% 22.509107142857143%, 17.914464285714285% 23.40178571428572%, 2.507142857142857% 46.25767857142857%, 2.1125% 46.85214285714286%, 2.2616071428571427% 46.86089285714286%, 10.951785714285714% 46.85589285714285%, 11.179642857142857% 46.73142857142857%, 23.15482142857143% 28.996785714285714%, 23.438928571428573% 28.840714285714288%, 41.20339285714286% 28.844285714285714%, 41.24535714285714% 28.844285714285714%, 45.17910714285714% 34.175892857142856%, 42.86946428571428% 37.56589285714286%, 42.36964285714286% 38.135714285714286%, 40.535178571428574% 39.537142857142854%, 38.972500000000004% 41.213750000000005%, 37.662321428571424% 43.17982142857142%, 36.52410714285714% 45.958035714285714%, 36.01714285714286% 49.00785714285715%, 35.99785714285714% 49.57642857142857%, 39.244107142857146% 49.57642857142857%, 39.244107142857146% 40.96839285714285%, 39.45821428571429% 40.96839285714285%, 45.708749999999995% 40.96678571428571%, 52.92214285714285% 49.57642857142857%, 54.753214285714286% 51.79321428571428%, 54.772678571428564% 49.57642857142857%, 54.83410714285715% 41.19125%, 54.832321428571426% 40.98428571428572%, 60.076071428571424% 40.98428571428572%, 60.076071428571424% 49.57642857142857%, 63.588928571428575% 49.57642857142857%, 63.47839285714286% 48.00125%, 63.01910714285714% 45.770535714285714%, 61.70392857142857% 42.7575%, 59.79928571428571% 40.23553571428571%, 58.92553571428572% 39.40946428571429%, 57.61732142857142% 38.37982142857143%, 56.92982142857143% 37.848392857142855%, 54.41303571428572% 34.14767857142857%, 58.08732142857142% 28.842499999999998%, 76.16910714285716% 28.83875%, 76.43946428571428% 28.979107142857142%, 88.40928571428572% 46.71910714285715%, 88.67750000000001% 46.86464285714286%, 97.30482142857143% 46.86089285714286%, 97.49946428571428% 46.845178571428576%, 81.53321428571428% 23.177500000000002%, 17.965892857142858% 76.65428571428572%, 19.165714285714287% 77.89803571428571%, 21.34732142857143% 78.58553571428571%, 43.35071428571429% 78.57857142857142%, 43.605357142857144% 78.61875%, 44.199642857142855% 78.61875%, 44.277142857142856% 78.57857142857142%, 45.786964285714284% 77.88553571428572%, 49.692857142857136% 72.67875%, 53.24964285714285% 77.3980357142857%, 55.46125000000001% 78.56821428571429%, 78.22553571428571% 78.58035714285714%, 80.90375% 77.32267857142857%, 81.58428571428573% 76.43017857142857%, 96.99160714285715% 53.574107142857144%, 97.38642857142857% 52.97982142857143%, 97.23714285714286% 52.97107142857143%, 88.54714285714284% 52.97589285714287%, 88.31910714285713% 53.10035714285714%, 76.34392857142856% 70.835%, 76.05964285714286% 70.99125%, 58.29535714285714% 70.98767857142857%, 58.25321428571429% 70.98767857142857%, 54.31946428571429% 65.65607142857142%, 56.629464285714285% 62.26607142857143%, 57.12928571428571% 61.69625%, 58.96375% 60.294821428571424%, 60.52625% 58.61821428571428%, 61.83660714285714% 56.652142857142856%, 62.97464285714286% 53.87375%, 63.481428571428566% 50.824107142857144%, 63.50089285714286% 50.25553571428571%, 60.254464285714285% 50.25553571428571%, 60.254464285714285% 58.86357142857144%, 60.04035714285714% 58.86357142857144%, 53.79% 58.865%, 46.576428571428565% 50.25553571428571%, 44.745357142857145% 48.03875%, 44.72625% 50.25553571428571%, 44.66482142857143% 58.640714285714274%, 44.66660714285714% 58.8475%, 39.42267857142857% 58.8475%, 39.42267857142857% 50.25553571428571%, 35.909642857142856% 50.25553571428571%, 36.02017857142857% 51.83053571428571%, 36.479642857142856% 54.06125%, 37.79482142857143% 57.074285714285715%, 39.699464285714285% 59.59624999999999%, 40.573035714285716% 60.4225%, 41.88125% 61.45214285714285%, 42.56892857142857% 61.98339285714287%, 45.08571428571429% 65.6842857142857%, 41.411249999999995% 70.98946428571428%, 23.329285714285717% 70.99303571428571%, 23.059107142857144% 70.85285714285715%, 11.089285714285714% 53.112857142857145%, 10.821071428571429% 52.96714285714285%, 2.19375% 52.97089285714286%, 1.9991071428571427% 52.986607142857146%, 17.965892857142858% 76.65428571428572%);
+}
+
+
+/* The animation code */
+
+@keyframes hoverMWICO {
+    from {
+        background: var(--BL1);
+    }
+    to {
+        background: var(--W);
+    }
+}
+
+
+/* @font-face {
+    font-family: mwn;
+    src: url('/mwn/css/fonts/NEWBRILLIANT.TTF');
+} */
+
+
+/* The element to apply the animation to */
+
+h1 {
+    font-family: mwn;
+}
+
+mwn {
+    display: block;
+    width: 75px;
+    height: 75px;
+    background: var(--C_PR);
+}
+
+#mwn_lsc {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: fixed;
+    background: var(--C_PR);
+}
+
+#mwn_lscd {
+    width: 100%;
+    height: 30px;
+    margin: 0;
+    left: -5px;
+    bottom: 50px;
+    position: absolute;
+    background: var(--C_PR);
+}
+
+#mwn_lscd>mwn {
+    position: relative;
+    float: left;
+}
+
+#mwn_lscd>mwn.mwn {
+    position: relative;
+    float: left;
+    background: var(--C_PR)
+}
+
+#mwn_sc {
+    display: none;
+}
+
+.mwn {
+    content: "";
+    clip-path: polygon( 81.53321428571428% 23.177500000000002%, 80.33339285714287% 21.934107142857144%, 78.15178571428571% 21.24660714285714%, 56.14803571428571% 21.25339285714286%, 55.89375% 21.213035714285716%, 55.299107142857146% 21.213035714285716%, 55.221964285714286% 21.25339285714286%, 53.71178571428571% 21.94625%, 49.806250000000006% 27.153392857142858%, 46.24946428571429% 22.43375%, 44.03785714285714% 21.263928571428572%, 21.273214285714285% 21.251785714285713%, 18.595000000000002% 22.509107142857143%, 17.914464285714285% 23.40178571428572%, 2.507142857142857% 46.25767857142857%, 2.1125% 46.85214285714286%, 2.2616071428571427% 46.86089285714286%, 10.951785714285714% 46.85589285714285%, 11.179642857142857% 46.73142857142857%, 23.15482142857143% 28.996785714285714%, 23.438928571428573% 28.840714285714288%, 41.20339285714286% 28.844285714285714%, 41.24535714285714% 28.844285714285714%, 45.17910714285714% 34.175892857142856%, 42.86946428571428% 37.56589285714286%, 42.36964285714286% 38.135714285714286%, 40.535178571428574% 39.537142857142854%, 38.972500000000004% 41.213750000000005%, 37.662321428571424% 43.17982142857142%, 36.52410714285714% 45.958035714285714%, 36.01714285714286% 49.00785714285715%, 35.99785714285714% 49.57642857142857%, 39.244107142857146% 49.57642857142857%, 39.244107142857146% 40.96839285714285%, 39.45821428571429% 40.96839285714285%, 45.708749999999995% 40.96678571428571%, 52.92214285714285% 49.57642857142857%, 54.753214285714286% 51.79321428571428%, 54.772678571428564% 49.57642857142857%, 54.83410714285715% 41.19125%, 54.832321428571426% 40.98428571428572%, 60.076071428571424% 40.98428571428572%, 60.076071428571424% 49.57642857142857%, 63.588928571428575% 49.57642857142857%, 63.47839285714286% 48.00125%, 63.01910714285714% 45.770535714285714%, 61.70392857142857% 42.7575%, 59.79928571428571% 40.23553571428571%, 58.92553571428572% 39.40946428571429%, 57.61732142857142% 38.37982142857143%, 56.92982142857143% 37.848392857142855%, 54.41303571428572% 34.14767857142857%, 58.08732142857142% 28.842499999999998%, 76.16910714285716% 28.83875%, 76.43946428571428% 28.979107142857142%, 88.40928571428572% 46.71910714285715%, 88.67750000000001% 46.86464285714286%, 97.30482142857143% 46.86089285714286%, 97.49946428571428% 46.845178571428576%, 81.53321428571428% 23.177500000000002%, 17.965892857142858% 76.65428571428572%, 19.165714285714287% 77.89803571428571%, 21.34732142857143% 78.58553571428571%, 43.35071428571429% 78.57857142857142%, 43.605357142857144% 78.61875%, 44.199642857142855% 78.61875%, 44.277142857142856% 78.57857142857142%, 45.786964285714284% 77.88553571428572%, 49.692857142857136% 72.67875%, 53.24964285714285% 77.3980357142857%, 55.46125000000001% 78.56821428571429%, 78.22553571428571% 78.58035714285714%, 80.90375% 77.32267857142857%, 81.58428571428573% 76.43017857142857%, 96.99160714285715% 53.574107142857144%, 97.38642857142857% 52.97982142857143%, 97.23714285714286% 52.97107142857143%, 88.54714285714284% 52.97589285714287%, 88.31910714285713% 53.10035714285714%, 76.34392857142856% 70.835%, 76.05964285714286% 70.99125%, 58.29535714285714% 70.98767857142857%, 58.25321428571429% 70.98767857142857%, 54.31946428571429% 65.65607142857142%, 56.629464285714285% 62.26607142857143%, 57.12928571428571% 61.69625%, 58.96375% 60.294821428571424%, 60.52625% 58.61821428571428%, 61.83660714285714% 56.652142857142856%, 62.97464285714286% 53.87375%, 63.481428571428566% 50.824107142857144%, 63.50089285714286% 50.25553571428571%, 60.254464285714285% 50.25553571428571%, 60.254464285714285% 58.86357142857144%, 60.04035714285714% 58.86357142857144%, 53.79% 58.865%, 46.576428571428565% 50.25553571428571%, 44.745357142857145% 48.03875%, 44.72625% 50.25553571428571%, 44.66482142857143% 58.640714285714274%, 44.66660714285714% 58.8475%, 39.42267857142857% 58.8475%, 39.42267857142857% 50.25553571428571%, 35.909642857142856% 50.25553571428571%, 36.02017857142857% 51.83053571428571%, 36.479642857142856% 54.06125%, 37.79482142857143% 57.074285714285715%, 39.699464285714285% 59.59624999999999%, 40.573035714285716% 60.4225%, 41.88125% 61.45214285714285%, 42.56892857142857% 61.98339285714287%, 45.08571428571429% 65.6842857142857%, 41.411249999999995% 70.98946428571428%, 23.329285714285717% 70.99303571428571%, 23.059107142857144% 70.85285714285715%, 11.089285714285714% 53.112857142857145%, 10.821071428571429% 52.96714285714285%, 2.19375% 52.97089285714286%, 1.9991071428571427% 52.986607142857146%, 17.965892857142858% 76.65428571428572%);
+}
+
+.MWIco {
+    cursor: pointer;
+}
+
+.HOV div:hover {
+    background-color: aqua;
+}
+
+
+/*******
+MW_STYLE
+PASS
+********/
+
+cr {
+    border-radius: 50%;
+    width: fit-content;
+    display: inline-block;
+    max-width: -moz-fit-content;
+}
+
+.cr {
+    border-radius: 50%;
+    width: fit-content;
+    display: inline-block;
+    max-width: -moz-fit-content;
+}
+
+.MD {
+    margin: auto;
+}
+
+.MD_T {
+    text-align: center;
+}
+
+.T_L {
+    text-align: left;
+}
+
+.T_R {
+    text-align: right;
+}
+
+.W_Me {
+    width: min-content;
+}
+
+.FL_L {
+    float: left;
+}
+
+.FL_R {
+    float: right;
+}
+
+.POS_AB {
+    position: absolute;
+}
+
+.POS_RE {
+    position: relative;
+}
+
+.POS_FX {
+    position: fixed;
+}
+
+.WW {
+    width: 100%;
+}
+
+.HH {
+    height: 100%;
+}
+
+.B_SOFT {
+    background-image: url("https://m-w-n.com/mwn/img/soft.png");
+}
+
+.D_B {
+    display: block;
+}
+
+.D_N {
+    display: none
+}
+
+.D_INB {
+    display: inline-block;
+}
+
+.T_H {
+    top: 0;
+    top: -1000px;
+}
+
+.R_H {
+    right: -1000px;
+    position: fixed;
+}
+
+.B_H {
+    bottom: -1000px;
+}
+
+.L_H {
+    left: -1000px;
+}
+
+.T_H._V {
+    top: 0px;
+    transition: top 0.2s ease-in-out;
+}
+
+.R_H._V {
+    right: 0px;
+    transition: right 0.2s ease-in-out;
+    position: absolute;
+}
+
+.B_H._V {
+    bottom: 0px;
+    transition: bottom 0.2s ease-in-out;
+}
+
+.L_H._V {
+    left: 0px;
+    transition: left 0.2s ease-in-out;
+}
+
+.CRD_1_2 {
+    width: 100%;
+    position: relative;
+    float: left;
+}
+
+.T_BOLD {
+    font-weight: bold;
+}
+
+.SCROLL {
+    overflow-y: scroll;
+}
+
+.overAuto {
+    overflow: auto;
+}
+
+
+/*******
+////////
+AUTO Classes
+.F_ Font Color
+.B_ Background Color
+.ST_ Stroke borer With color type solid
+.F_S_ Font Size // 0 < 101 >>
+.PD_ Padding
+.MR_ Margin
+.H_ Height // 0 < 201 >>
+.W_ Widht
+.Box_ Box Size 
+.mT_ Margin Top
+.mL_ Margin Left
+.mR_ Margin Right
+.mBot_ Margin Bottom
+////////
+Elements
+Classes
+////////
+Form
+*******/
+
+.Form {
+    width: 100%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.IMG_B_FORM {
+    position: relative;
+}
+
+.FLX_C {
+    width: 100%;
+    margin: auto;
+    height: -webkit-fill-available;
+}
+
+
+/******
+Devices 
+*******/
+
+
+/******
+Mobile W 
+******/
+
+@media only screen and (min-width: 210px) {}
+
+@media only screen and (min-width: 320px) {}
+
+
+/**
+Tablet W 
+**/
+
+@media only screen and (min-width: 481px) {
+    .Form {
+        width: 90%;
+    }
+    .FLX_C {
+        width: 80%;
+    }
+    .CRD_1_2 {
+        width: 90%;
+    }
+}
+
+
+/**
+Labtob W 
+**/
+
+@media only screen and (min-width: 769px) {
+    .Form {
+        margin-right: 80px;
+        width: 400px;
+        float: right;
+    }
+    .IMG_B_FORM {
+        position: absolute;
+    }
+    .FLX_C {
+        width: 70%;
+    }
+    .CRD_1_2 {
+        width: 50%;
+    }
+}
+
+
+/**
+PC W 
+**/
+
+@media only screen and (min-width: 1190px) {
+    .Form {
+        margin-right: 120px;
+        width: 500px;
+        float: right;
+    }
+    .IMG_B_FORM {
+        position: absolute;
+    }
+    .FLX_C {
+        max-width: 960px;
+    }
+    .CRD_1_2 {
+        width: 50%;
+    }
+}
+
+
+/*
+PASS HTML
+*/
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+button {
+    border: none;
+    overflow: visible;
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+img {
+    border: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+
+/*Print*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        color: #000 !important;
+        text-shadow: none !important;
+        background: transparent !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    img {
+        max-width: 100% !important;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+    .navbar {
+        display: none;
+    }
+    .btn>.caret,
+    .dropup>.btn>.caret {
+        border-top-color: #000 !important;
+    }
+    .label {
+        border: 1px solid #000;
+    }
+    .table {
+        border-collapse: collapse !important;
+    }
+    .table td,
+    .table th {
+        background-color: #fff !important;
+    }
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #ddd !important;
+    }
+}
+
+@media print {
+    .visible-print-block {
+        display: block !important;
+    }
+}
+
+.visible-print-inline {
+    display: none !important;
+}
+
+@media print {
+    .visible-print-inline {
+        display: inline !important;
+    }
+}
+
+.visible-print-inline-block {
+    display: none !important;
+}
+
+@media print {
+    .visible-print-inline-block {
+        display: inline-block !important;
+    }
+}
+
+@media print {
+    .hidden-print {
+        display: none !important;
+    }
+}
+
+
+/* The switch - the box around the slider */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #19c000;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #19c000;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.Ztop {
+    z-index: 10;
+}
