@@ -5,28 +5,40 @@ var words = ["Rock", "Paper", "Scissors"];
 //main
 const C_H = (typ, cls, inner, eId) => {
     /* In fact, my library is more complicated than what I write of code here ,
-     so I will try to use it, but in a simple way to explain my point, 
-     I will make a tool for  creating HTML pieces,
-      to be clear and I will Call it C_H = Create Html  
-      */
+    so I will try to use it, but in a simple way to explain my point, 
+    I will make a tool for  creating HTML pieces,
+    to be clear and I will Call it C_H = Create Html  
+    */
     var e = CE_(typ);
     /*  U_CSS generate css classes and append
      page style if class is not exists */
     e.className = U_CSS(cls);
-
-    if (typ == "img") {
-        e.src = inner;
-    } else {
-        e.innerHTML = inner;
+    if (typ == "img") { e.src = inner; } else { e.innerHTML = inner; }
+    if (eId) {
+        e.id = eId;
     }
 
-    e.id = eId;
     return e;
 }
 const A_H = (p, c) => {
     for (var e = 0; e < c.length; e++) {
         p.appendChild(c[e]);
     }
+}
+const gameView = () => {
+    var score = 0;
+    var sysScoreN = 0;
+    var userScore = C_H("div", "POS_FX PD_3 LL_0 TT_0 _MR_20 B_GRE4 F_B B_R_15", "", "userScore");
+    var userI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_30 F_W MWIco", "", false);
+    userScore.appendChild(userI);
+    userScore.innerHTML += `User >> ${score}`;
+    var sysScore = C_H("div", "POS_FX PD_3 RR_0 TT_0 _MR_20 B_RE7 F_B B_R_15", "", "sysScore");
+    var sysI = C_H("icon", "ICO-user-alt-7 PD_5 F_S_30 F_W MWIco", "", false);
+    sysScore.innerHTML = ` ${sysScoreN} << AzAzY`;
+    sysScore.appendChild(sysI);
+    var body = E_T("body")[0];
+    body.appendChild(userScore);
+    body.appendChild(sysScore);
 }
 const _ = (function() {
 
@@ -50,5 +62,5 @@ const _ = (function() {
     var p = C_H("p", "F_B F_S_50", "Rock  -  Paper  -  Scissors <br>", "p1");
     A_H(logoArea, [logo, ti, p]);
     A_H(root, [logoArea, playScreen, btArea]);
-
+    gameView();
 })();
