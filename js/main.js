@@ -96,7 +96,8 @@ const gameStart = () => {
 
 }
 const gameEnd = (r) => {
-
+    var sysChoose = randomNum(0, 3);
+    CL_(sysChoose)
 
 }
 const _ = (function() {
